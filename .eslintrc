@@ -1,0 +1,29 @@
+{
+  "env": {
+    "browser": true,
+    "jest": true
+  },
+  "extends": ["airbnb", "prettier", "prettier/react"],
+  "plugins": ["prettier"],
+  "rules": {
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
+    "prettier/prettier": "error",
+    "import/prefer-default-export": 0
+  },
+  "parser": "babel-eslint",
+  "settings": {
+    "import/resolver": {
+      "alias": {
+        "map": [
+          ["@", "./src"],
+          ["images", "./src/images"],
+          ["svgs", "./src/svgs"],
+          ["utils", "./src/utils"],
+          ["blocks", "./src/blocks"],
+          ["components", "./src/components"]
+        ],
+        "extensions": [".ts", ".js", ".jsx", ".json", "jpg", "png", "svg"]
+      }
+    }
+  }
+}

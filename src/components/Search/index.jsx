@@ -1,21 +1,29 @@
-import React, { useState } from 'react';
+/* eslint-disable no-undef */
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
-import search from '../../svgs/search.svg';
-import google from '../../svgs/google.svg';
+import search from 'svgs/search.svg';
+import { IconList, SearchPrefix } from 'utils/const';
 
 function Search() {
   const [inputData, setInput] = useState('');
+  const [searchIconType, setSearchIconType] = useState('GOOGLE');
+  // useEffect(() => {
+  //   chrome.storage.sync.get(['searchIconType'], (result) => {
+  //     let type = result.key || 'GOOGLE';
+  //     setSearchIconType(type);
+  //   });
+  // }, [0]);
   const handleKeyDown = (e) => {
     if (e.key === 'Enter' && document.activeElement.id === 'searchInput') {
-      window.location.href = `https://www.google.com/search?q=${inputData}`;
+      window.location.href = `${SearchPrefix[searchIconType]}${inputData}`;
     }
   }
   return (
     <Wrapper>
       <Icon src={search} />
       <Input id="searchInput" value={inputData} onChange={(e) => setInput(e.target.value)} onKeyPress={handleKeyDown}/>
-      <Select src={google} />
+      <Select src={IconList[searchIconType]} />
     </Wrapper>
   );
 }

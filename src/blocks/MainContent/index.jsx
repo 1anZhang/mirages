@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Greeting from '../../components/Greeting';
-import Search from '../../components/Search';
-import Timer from '../../components/Timer';
+import Greeting from 'components/Greeting';
+import Search from 'components/Search';
+import Timer from 'components/Timer';
 
-import duck from '../../svgs/duck.svg';
+import duck from 'svgs/duck.svg';
 
 function MainContent() {
   return (

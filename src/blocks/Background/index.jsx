@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import bg from '../../images/bg.jpg';
+import bg from 'images/bg.jpg';
 function Background() {
   const bgUrl = `url(${bg})`;
   return (
