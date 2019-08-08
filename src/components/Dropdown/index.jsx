@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import Button from '@material-ui/core/Button';
@@ -8,7 +9,7 @@ import useSearch from 'hooks/useSearch';
 import { IconList, SearchPrefix } from 'utils/const';
 
 function Dropdown () {
-  const [icon, setIcon] = useSearch();
+  const [type, setType] = useSearch();
   const [show, setShow] = useState(false);
   const { s } = useSpring({
     s: show ? 1 : 0,
@@ -22,7 +23,7 @@ function Dropdown () {
   return (
     <DropdownWrapper>
       <Button fullWidth onClick={() => setShow(!show)}>
-        <CurrentIcon src={IconList[icon]}/>
+        <CurrentIcon src={IconList[type]}/>
       </Button>
       <AnimatedWrapper style={{
         transform: s
@@ -35,7 +36,7 @@ function Dropdown () {
         <IconListWrapper>
           {
             Object.keys(IconList).map(key => (
-              <BaseButton key={key} focusRipple onClick={(key) => handleClick(key)}>
+              <BaseButton key={key} focusRipple onClick={() => handleClick(key)}>
                 <IconItem>
                     <IconImg src={IconList[key]} />
                 </IconItem>

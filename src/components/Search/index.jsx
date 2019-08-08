@@ -1,13 +1,15 @@
 /* eslint-disable no-undef */
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import Dropdown from 'components/Dropdown';
 import search from 'svgs/search.svg';
-import { IconList, SearchPrefix } from 'utils/const';
+import { SearchPrefix } from 'utils/const';
+import useSearch from 'hooks/useSearch';
 
 function Search() {
   const [inputData, setInput] = useState('');
+  const [searchIconType] = useSearch('');
 
   const handleKeyDown = (e) => {
     if (e.key === 'Enter' && document.activeElement.id === 'searchInput') {
