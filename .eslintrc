@@ -8,7 +8,8 @@
   "rules": {
     "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
     "prettier/prettier": "error",
-    "import/prefer-default-export": 0
+    "import/prefer-default-export": 0,
+    "no-undef": 0
   },
   "parser": "babel-eslint",
   "settings": {
@@ -20,6 +21,7 @@
           ["svgs", "./src/svgs"],
           ["utils", "./src/utils"],
           ["blocks", "./src/blocks"],
+          ["hooks", "./src/hooks"],
           ["components", "./src/components"]
         ],
         "extensions": [".ts", ".js", ".jsx", ".json", "jpg", "png", "svg"]

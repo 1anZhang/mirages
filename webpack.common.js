@@ -33,11 +33,12 @@ module.exports = {
     modules: ['node_modules', path.resolve(__dirname, 'src')],
     extensions: ['.js', '.json', '.jsx', '.less', 'jpg', 'png', 'svg'],
     alias: {
-      src: path.resolve(__dirname, 'src'),
+      '@': path.resolve(__dirname, 'src'),
       images: path.resolve(__dirname, 'src/images'),
       svgs: path.resolve(__dirname, 'src/svgs'),
       utils: path.resolve(__dirname, 'src/utils'),
       blocks: path.resolve(__dirname, 'src/blocks'),
+      hooks: path.resolve(__dirname, 'src/hooks'),
       components: path.resolve(__dirname, 'src/components')
     }
   },

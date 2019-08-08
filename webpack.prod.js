@@ -31,7 +31,7 @@ module.exports = merge(common, {
   },
   plugins: [
     new CleanWebpackPlugin(['dist']),
-    new ManifestPlugin(),
+    // new ManifestPlugin(),
     new BundleAnalyzerPlugin(),
     new MiniCssExtractPlugin(),
     new OptimizeCssAssetsPlugin()

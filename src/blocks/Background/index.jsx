@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import bg from 'images/bg.jpg';
+
 function Background() {
   const bgUrl = `url(${bg})`;
   return (
-    <Wrapper bgUrl={bgUrl}>
-    </Wrapper>
+    <Wrapper bgUrl={bgUrl}></Wrapper>
   );
 }
 
