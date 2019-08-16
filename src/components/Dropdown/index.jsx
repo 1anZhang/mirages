@@ -1,35 +1,33 @@
 /* eslint-disable */
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { useSelector, useDispatch } from 'react-redux';
 
-import Button from '@material-ui/core/Button';
-import BaseButton from '@material-ui/core/ButtonBase';
-import { changeSearchType } from '@/store/search/actions';
 import { useSpring, animated } from 'react-spring';
 
-import { IconList, SearchPrefix } from 'utils/const';
-
-function Dropdown () {
-  const searchType = useSelector(state => state.search.searchType);
-  const dispatch = useDispatch();
-
+function Dropdown (props) {
   const [show, setShow] = useState(false);
   const { s } = useSpring({
     s: show ? 1 : 0,
     from: show ? { s: 0 } : { s: 1 },
-  })
+  });
+  const onClick = () => {
+    setShow(!show);
+    window.removeEventListener('click', onClick, true);
+  };
 
-  const handleClick = (action) => {
-    console.log('action', action);
-    dispatch(changeSearchType(action));
+  if (show) {
+    window.addEventListener('click', onClick, true);
   }
-
+  
+  const onChildrenClick = (e) => {
+    e.stopPropagation();
+    setShow(!show);    
+  }
   return (
     <DropdownWrapper>
-      <Button fullWidth onClick={() => setShow(!show)}>
-        <CurrentIcon src={IconList[searchType]}/>
-      </Button>
+      <div onClick={onChildrenClick}>
+        { props.children }
+      </div>
       <AnimatedWrapper style={{
         transform: s
           .interpolate({
@@ -39,17 +37,7 @@ function Dropdown () {
           .interpolate(x => `scale(${x})`),
           opacity: show ? 1 : 0
       }}>
-        <IconListWrapper>
-          {
-            Object.keys(IconList).map(key => (
-              <BaseButton key={key} focusRipple onClick={() => handleClick(key)}>
-                <IconItem>
-                    <IconImg src={IconList[key]} />
-                </IconItem>
-              </BaseButton>
-            ))
-          }
-        </IconListWrapper>
+        {props.menu}
       </AnimatedWrapper>
     </DropdownWrapper>
   );

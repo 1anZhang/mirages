@@ -32,7 +32,6 @@ function Greeting() {
     default:
       break;
   }
-  console.log('123', time);
   return(
     <GreetText>
      {TimeRange[timeIndex]}
