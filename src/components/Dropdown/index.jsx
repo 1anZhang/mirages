@@ -1,15 +1,19 @@
 /* eslint-disable */
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { useSelector, useDispatch } from 'react-redux';
+
 import Button from '@material-ui/core/Button';
 import BaseButton from '@material-ui/core/ButtonBase';
+import { changeSearchType } from '@/store/search/actions';
 import { useSpring, animated } from 'react-spring';
 
-import useSearch from 'hooks/useSearch';
 import { IconList, SearchPrefix } from 'utils/const';
 
 function Dropdown () {
-  const [type, setType] = useSearch();
+  const searchType = useSelector(state => state.search.searchType);
+  const dispatch = useDispatch();
+
   const [show, setShow] = useState(false);
   const { s } = useSpring({
     s: show ? 1 : 0,
@@ -18,12 +22,13 @@ function Dropdown () {
 
   const handleClick = (action) => {
     console.log('action', action);
+    dispatch(changeSearchType(action));
   }
 
   return (
     <DropdownWrapper>
       <Button fullWidth onClick={() => setShow(!show)}>
-        <CurrentIcon src={IconList[type]}/>
+        <CurrentIcon src={IconList[searchType]}/>
       </Button>
       <AnimatedWrapper style={{
         transform: s
@@ -31,7 +36,8 @@ function Dropdown () {
             range: [0, 0.25, 0.35, 0.45, 0.55, 0.65, 0.75, 1],
             output: [0, 0.25, 0.45, 0.65, 0.85, 1.05, 1.25, 1]
           })
-          .interpolate(x => `scale(${x})`)
+          .interpolate(x => `scale(${x})`),
+          opacity: show ? 1 : 0
       }}>
         <IconListWrapper>
           {

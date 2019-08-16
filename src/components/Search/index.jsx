@@ -1,19 +1,20 @@
 /* eslint-disable no-undef */
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { useSelector } from 'react-redux';
 
 import Dropdown from 'components/Dropdown';
 import search from 'svgs/search.svg';
 import { SearchPrefix } from 'utils/const';
-import useSearch from 'hooks/useSearch';
 
 function Search() {
   const [inputData, setInput] = useState('');
-  const [searchIconType] = useSearch('');
+  const searchType = useSelector(state => state.search.searchType);
+  console.log('1231232', searchType);
 
   const handleKeyDown = (e) => {
     if (e.key === 'Enter' && document.activeElement.id === 'searchInput') {
-      window.location.href = `${SearchPrefix[searchIconType]}${inputData}`;
+      window.location.href = `${SearchPrefix[searchType]}${inputData}`;
     }
   }
   return (

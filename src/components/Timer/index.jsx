@@ -19,15 +19,15 @@ function paserTime(date) {
   const day = handleTimer(date.getDate());
   const hour = handleTimer(date.getHours());
   const minute = handleTimer(date.getMinutes());
-  const seconds = handleTimer(date.getSeconds());
-  const res = `${year}/${month}/${day} ${hour}:${minute}:${seconds}`;
+  // const seconds = handleTimer(date.getSeconds());
+  const res = `${year}/${month}/${day} ${hour}:${minute}`;
   return res;
 }
 function Timer() {
   const [date, setDate] = useState(new Date());
   setInterval(() => {
     setDate(new Date());
-  }, 1000);
+  }, 1000 * 60);
   return(
     <Wrapper>
       { paserTime(date) }
