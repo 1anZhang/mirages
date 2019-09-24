@@ -3,3 +3,8 @@ node_modules
 package-lock.json
 yarn-error.log
 .build_cache
+.DS_Store
+coverage
+lib
+es
+types

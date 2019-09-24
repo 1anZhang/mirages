@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 function useSearch() {
-  const [searchIconType, setSearchIconType] = useState('GOOGLE');
+  const [searchIconType, setSearchIconType] = useState('BING');
   if (chrome.storage) {
     useEffect(() => {
       chrome.storage.sync.get(['searchIconType'], (result) => {

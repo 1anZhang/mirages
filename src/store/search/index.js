@@ -1,5 +1,5 @@
 const search = (state = {
-  searchType: 'GOOGLE'
+  searchType: 'BING'
 }, action) => {
   switch (action.type) {
     case 'changeSearchType':
