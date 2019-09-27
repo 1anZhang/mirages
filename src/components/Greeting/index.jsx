@@ -1,13 +1,20 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const userName = 'ZhangYxY';
+// const userName = 'ZhangYxY';
+// const TimeRange = [
+//   `早上好, ${userName}, 今天又是摸鱼的一天呢！`,
+//   `中午好, ${userName}, 又到了吹比午睡的时间！`,
+//   `下午好, ${userName}, 今天的bug还有多少没改！`,
+//   `晚上好, ${userName}, 收拾收拾东西准备回家了！`,
+//   `夜深了, ${userName}, 还没回家该吃小龙虾了！`,
+// ]
 const TimeRange = [
-  `早上好, ${userName}, 今天又是摸鱼的一天呢！`,
-  `中午好, ${userName}, 又到了吹比午睡的时间！`,
-  `下午好, ${userName}, 今天的bug还有多少没改！`,
-  `晚上好, ${userName}, 收拾收拾东西准备回家了！`,
-  `夜深了, ${userName}, 还没回家该吃小龙虾了！`,
+  `早上好`,
+  `中午好`,
+  `下午好`,
+  `晚上好`,
+  `夜深了`,
 ]
 
 function Greeting() {
