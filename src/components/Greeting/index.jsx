@@ -3,21 +3,23 @@ import styled from 'styled-components';
 
 
 function Greeting() {
-  const [poem, setPoem] = useState({});
+  const [poem, setPoem] = useState({origin: {}});
 
   useEffect(() => {
-    fetch('https://v1.jinrishici.com/all.json').then(data => {
+    fetch('https://v2.jinrishici.com/one.json',{
+      token: 'vzm6x3z494pQl1Cp+6UFMjF4HPGDequz'
+    }).then(data => {
       return data.json();
     }).then(res => {
-      setPoem(res);
+      setPoem(res.data);
     });
   }, []);
 
   return(
-    <GreetPoem>
+    poem.content ? <GreetPoem>
       <Poem>{poem.content}</Poem>
-      <Origin>——{poem.author}《{poem.origin}》</Origin>
-    </GreetPoem>
+      <Origin>——{poem.origin.author}《{poem.origin.title}》</Origin>
+    </GreetPoem> : <div></div>
   );
 }
 
