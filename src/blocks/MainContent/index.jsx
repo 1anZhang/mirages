@@ -4,13 +4,12 @@ import styled from 'styled-components';
 import Greeting from 'components/Greeting';
 import Search from 'components/Search';
 import Timer from 'components/Timer';
-
-import duck from 'svgs/duck.svg';
+import Weather from 'components/Weather';
 
 function MainContent() {
   return (
     <Content>
-      <Logo src={duck} />
+      <Weather />
       <Timer />
       <Greeting />
       <Search />
@@ -31,12 +30,3 @@ const Content = styled.div`
   flex-direction: column;
   align-items: center;
 `;
-
-const Logo = styled.img`
-  position: absolute;
-  left: 10px;
-  top: 5px;
-  display: block;
-  width: 40px;
-  height: 40px;
-`

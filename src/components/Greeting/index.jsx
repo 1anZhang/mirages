@@ -7,7 +7,8 @@ function Greeting() {
 
   useEffect(() => {
     fetch('https://v2.jinrishici.com/one.json',{
-      token: 'vzm6x3z494pQl1Cp+6UFMjF4HPGDequz'
+      token: 'vzm6x3z494pQl1Cp+6UFMjF4HPGDequz',
+      credentials: 'include'
     }).then(data => {
       return data.json();
     }).then(res => {
@@ -31,7 +32,7 @@ const GreetPoem = styled.div`
   left: 0;
   right: 0;
   margin: 0 auto;
-  width: 780px;
+  width: 660px;
   color: #fff;
   text-align: right;
 `
