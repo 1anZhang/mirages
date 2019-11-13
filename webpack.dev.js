@@ -4,14 +4,6 @@ const merge = require('webpack-merge');
 const common = require('./webpack.common.js');
 
 module.exports = merge(common, {
-  module: {
-    rules: [
-      {
-        test: /\.(css|less)$/,
-        use: ['style-loader', 'css-loader', 'less-loader']
-      }
-    ]
-  },
   plugins: [new webpack.HotModuleReplacementPlugin()],
 
   // devServer可以配置自定义响应头，lazy加载模式，模拟history多页后端请求

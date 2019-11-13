@@ -1,23 +1,13 @@
 // const webpack = require('webpack');
 const merge = require('webpack-merge');
 const TerserPlugin = require('terser-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 // const ManifestPlugin = require('webpack-manifest-plugin');
 const common = require('./webpack.common.js');
 
 module.exports = merge(common, {
-  module: {
-    rules: [
-      {
-        test: /\.(css|less)$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'less-loader']
-      }
-    ]
-  },
   optimization: {
     minimizer: [
       new TerserPlugin({
@@ -37,8 +27,7 @@ module.exports = merge(common, {
     ]),
     // new ManifestPlugin(),
     new BundleAnalyzerPlugin(),
-    new MiniCssExtractPlugin(),
-    new OptimizeCssAssetsPlugin()
+    new MiniCssExtractPlugin()
   ],
   mode: 'production'
 });
