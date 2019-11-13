@@ -26,8 +26,7 @@ module.exports = merge(common, {
       { from: 'static' }
     ]),
     // new ManifestPlugin(),
-    new BundleAnalyzerPlugin(),
-    new MiniCssExtractPlugin()
+    new BundleAnalyzerPlugin()
   ],
   mode: 'production'
 });
