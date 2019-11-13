@@ -31,7 +31,7 @@ function Search() {
         Object.keys(IconList).map(key => (
           <BaseButton key={key} focusRipple onClick={() => onClick(key)}>
             <IconItem>
-                <IconImg src={IconList[key]} />
+                <IconImg dangerouslySetInnerHTML={{ __html: IconList[key] }}/>
             </IconItem>
           </BaseButton>
         ))
@@ -41,11 +41,11 @@ function Search() {
 
   return (
     <Wrapper>
-      <Icon src={search} />
+      <Icon dangerouslySetInnerHTML={{ __html: search }} />
       <Input id="searchInput" value={inputData} onChange={(e) => setInput(e.target.value)} onKeyPress={handleKeyDown}/>
       <Dropdown menu={DropdownMenu()}>
         <Button fullWidth >
-          <CurrentIcon src={IconList[searchType]}/>
+          <CurrentIcon dangerouslySetInnerHTML={{ __html: IconList[searchType] }} />
         </Button>
       </Dropdown>
     </Wrapper>
@@ -74,13 +74,13 @@ const Input = styled.input`
   font-size: 18px;
 `
 
-const Icon = styled.img`
+const Icon = styled.div`
   display: block;
   width: 24px;
   height: 24px;
 `
 
-const CurrentIcon = styled.img`
+const CurrentIcon = styled.div`
   width: 24px;
   height: 24px;
 `
@@ -116,7 +116,7 @@ const IconItem = styled.ul`
   border-bottom: 1px solid #ada;
 `
 
-const IconImg = styled.img`
+const IconImg = styled.div`
   width: 24px;
   height: 24px;
 `

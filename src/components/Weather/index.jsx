@@ -24,23 +24,23 @@ function Weather() {
   return(
     <Wrapper>
       <Item>
-        <Icon src={humidityIcon} />
+        <Icon dangerouslySetInnerHTML={{ __html: humidityIcon }} />
         {weather.humidity}%
       </Item>
       <Item>
-        <Icon src={temperatureIcon} />
+        <Icon dangerouslySetInnerHTML={{ __html: temperatureIcon }} />
         {weather.temperature}°C
       </Item>
       <Item>
-        <Icon src={pm25Icon} />
+        <Icon dangerouslySetInnerHTML={{ __html: pm25Icon }} />
         {weather.pm25}
       </Item>
       <Item>
-        <Icon src={weatherIcon} />
+        <Icon dangerouslySetInnerHTML={{ __html: weatherIcon }} />
         {weather.weather}
       </Item>
       <Item>
-        <Icon src={windIcon} />
+        <Icon dangerouslySetInnerHTML={{ __html: windIcon }} />
         {weather.windDirection}{weather.windPower}级
       </Item>
     </Wrapper>
@@ -65,7 +65,7 @@ const Item = styled.div`
   margin: 0 8px;
 `;
 
-const Icon = styled.img`
+const Icon = styled.div`
   width: 18px;
   height: 18px;
   margin: 0 4px;
